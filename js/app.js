@@ -33,7 +33,7 @@ setTimeout(function() {
     // alert score e numeri indovinati
     alert("I numeri da indovinare erano : " + numRandom + "\nIl tuo score è : " + score + "\nI numeri da te indovinati sono : " + numeriUtente)
     console.log(numeriUtente)
-}, 300);
+}, 30000);
 // FINE TIMER DI 30 SECONDI
 
 // FUNZIONE numeri random
