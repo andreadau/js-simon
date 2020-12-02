@@ -11,8 +11,8 @@ var numeriUtente = [];
 var controllo;
 // Ciclo per numeri random e inserimento nell'array
 for (var i = 0; i < 5; i++) {
-    var x = randomNumberFromTo(1, 100);
-    numRandom.push(x);
+    var numero = randomNumberFromTo(1, 100);
+    numRandom.push(numero);
  };
 // Avviso all'utente
 console.log(numRandom);   
@@ -20,20 +20,23 @@ alert("Ricorda bene questi numeri: " + numRandom + "\nTra 30 secondi ti verranno
 // TIMER DI 30 SECONDI
 setTimeout(function() {
     // Ciclo per inserire i numeri 
-    for (var i = 0; i < 5; i++) {
-      controllo = Number(prompt("Inserisci i numeri precedenti"));
-      // Ciclo inserire numeri corretti in array
-        for (var j = 0; j < numRandom.length; j++) {
-            if (controllo == numRandom[j]) {
-            numeriUtente.push(controllo);
-            }
-        }
+    for (var i=0; i < 5; i++) {
+      numeroUtente = Number(prompt("Inserisci i numeri precedenti"));
+      if (!numeriUtente.includes(numeroUtente)) {
+        numeriUtente.push(numeroUtente);
+      }
     }
-    var score = numeriUtente.length;
+    // Ciclo inserire numeri corretti in array
+    var indovinati = [];
+        for (var i=0; i < numeriUtente.length; i++) {
+            if (numRandom.includes(numeriUtente[i])) {
+                indovinati.push(numeriUtente[i]);
+            }
+    }
     // alert score e numeri indovinati
-    alert("I numeri da indovinare erano : " + numRandom + "\nIl tuo score è : " + score + "\nI numeri da te indovinati sono : " + numeriUtente)
-    console.log(numeriUtente)
-}, 30000);
+    alert("I numeri da indovinare erano : " + numRandom + "\nIl tuo score è : " + indovinati.length + "\nI numeri da te indovinati sono : " + indovinati)
+    console.log(indovinati)
+}, 3000);
 // FINE TIMER DI 30 SECONDI
 
 // FUNZIONE numeri random
